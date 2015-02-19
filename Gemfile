@@ -14,6 +14,9 @@ gem 'activerecord', '~>4.1'
 gem 'rake'
 
 gem 'shotgun'
+gem 'dotenv'
+gem 'bcrypt'
+gem 'httparty'
 
 group :test do
   gem 'shoulda-matchers'

@@ -18,6 +18,29 @@
   <title></title>
 </head>
 <body>
+
+
+<div class="header">
+
+  <div class="login"><a href="https://api.instagram.com/oauth/authorize/?client_id=<%= @CLIENT_ID %>&redirect_uri=http://localhost:9393&response_type=code">Login</a></div>
+
+  <div class="form">
+    <form id="search_username" method="post" action="/">
+      <input id="username" type="text" placeholder="username">
+      <input type="submit" value="search">
+    </form>
+  </div>
+
+</div>
+
   <%= yield %>
+
+
+<div class="footer">
+  footer
+</div>
+
+
+  
 </body>
 </html>
