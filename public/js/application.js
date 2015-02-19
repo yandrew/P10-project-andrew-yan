@@ -1,3 +1,4 @@
+"use strict";
 $(document).ready(function() {
 	$('form.search-form').on('submit', userfeed);
 
@@ -10,7 +11,7 @@ function userfeed (event) {
 		url: '/',
 		type: 'get',
 		dataType: 'json',
-		data: {username: input},
+		data: {username: input}
 	})
 	.done(function() {
 		console.log("success");

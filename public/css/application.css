@@ -5,7 +5,7 @@ body{
 
 a{
 	text-decoration: none;
-	color: #ffffff;
+	color: red;
 }
 
 a:visited{
@@ -56,6 +56,9 @@ a:visited{
 	right: 9%;
 	position: absolute;
 }
+.login a{
+	color: white;
+}
 
 
 .title{
@@ -81,6 +84,7 @@ h1.search-title{
 	border-radius: 5px;
 	/*-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);*/
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+	display: none;
 }
 
 .search-input{

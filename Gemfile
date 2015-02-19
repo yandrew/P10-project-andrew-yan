@@ -15,7 +15,7 @@ gem 'rake'
 
 gem 'shotgun'
 gem 'dotenv'
-gem 'bcrypt'
+gem 'instagram'
 gem 'httparty'
 
 group :test do
@@ -23,6 +23,7 @@ group :test do
   gem 'rack-test'
   gem 'rspec'
   gem 'capybara'
+  gem 'pry'
 end
 
 group :test, :development do

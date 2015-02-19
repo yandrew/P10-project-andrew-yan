@@ -18,10 +18,12 @@ require 'logger'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
+require 'instagram'
 require 'erb'
 require 'dotenv'
 require 'httparty'
 require 'json'
+require 'sinatra'
 Dotenv.load
 
 # Some helper constants for path-centric logic
@@ -48,7 +50,13 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
 
-# API SECRETS
+# Instagram configuration
+	Instagram.configure do |config|
+	  config.client_id = ENV['CLIENT_ID']
+	  config.client_secret = ENV['CLIENT_SECRET']
+	  # For secured endpoints only
+	  #config.client_ips = '<Comma separated list of IPs>'
+	end
 
-CLIENT_ID=ENV['CLIENT_ID']
-CLIENT_SECRET=ENV['CLIENT_SECRET']
+
+

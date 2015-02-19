@@ -1,6 +1,6 @@
-require 'httparty'
-require 'json'
-require 'pry'
+# require 'httparty'
+# require 'json'
+# require 'pry'
 
 
 # my_id = 144350655
@@ -34,32 +34,32 @@ require 'pry'
 # puts "-------------------headers inspect -------------------"
 # puts vinny_posts.headers.inspect
 
-CLIENT_ID="cae89f9a719446e89aff6712ffeb26df"
-CLIENT_SECRET="375a67d9d69848c8a84db6affa1f5368"
+# CLIENT_ID="cae89f9a719446e89aff6712ffeb26df"
+# CLIENT_SECRET="375a67d9d69848c8a84db6affa1f5368"
 
-module Instagram
-	class Client
-		include HTTParty
-		base_uri 'https://api.instagram.com'
+# module Instagram
+# 	class Client
+# 		include HTTParty
+# 		base_uri 'https://api.instagram.com'
 
-		def initialize
-		end
+# 		def initialize
+# 		end
 
-		def search_user(username)
-			options = { query: { q: username, client_id: CLIENT_ID } }
+# 		def search_user(username)
+# 			options = { query: { q: username, client_id: CLIENT_ID } }
 			
-			response = self.class.get('/v1/users/search', options)
-			return response
-		end
+# 			response = self.class.get('/v1/users/search', options)
+# 			return response
+# 		end
 
-		def user_feed(user_id)
-			options = { query: { client_id: CLIENT_ID } }
-			response = self.class.get("/v1/users/#{user_id}/media/recent/", options)
-			return response
-		end
+# 		def user_feed(user_id)
+# 			options = { query: { client_id: CLIENT_ID } }
+# 			response = self.class.get("/v1/users/#{user_id}/media/recent/", options)
+# 			return response
+# 		end
 
-	end
-end
+# 	end
+# end
 
 
 # api = Instagram::Client.new
