@@ -1,22 +1,27 @@
 body{
-    text-align: center;
+	/* text-align: center; */
+	background-image:url(../imgs/concrete_seamless.png);
 }
 
 a{
 	text-decoration: none;
-	color: black;
+	color: #ffffff;
 }
 
 a:visited{
 	text-decoration: none;
-	color: black;
+	color: #ffffff;
 }
 
 .header{
-	background-color: blue;
-	height: 75px;
+	background-color: rgba(130, 72, 70, 0.84);
+
+	height: 240px;
+
 	text-align: center;
 	padding: 15px;
+	margin-bottom: 20px;
+	margin-top: 10%;
 }
 
 .image {
@@ -24,7 +29,7 @@ a:visited{
 }
 
 .login a{
-	text-size: 1.2em;
+	font-size: 1.2em;
 }
 
 .form {
@@ -32,7 +37,7 @@ a:visited{
 }
 
 .footer{
-	background-color: yellow;
+	background-color: rgba(130, 72, 70, 0.84);
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -41,24 +46,81 @@ a:visited{
 
 .picture-wraper{
 	width: 350px;
-    display: inline-block;
-    margin: 20px;
-    text-align: center;
+	display: inline-block;
+	margin: 20px;
+	text-align: center;
 }
 
 
-
-.picture {
-    
+.login {
+	right: 9%;
+	position: absolute;
 }
+
 
 .title{
 	text-align: center;
 	font-size: 1.1em;
-	color: rgb(102, 102, 89);
+	color: rgb(0, 0, 0);
 	
 	margin-bottom: 5px;
 }
+h1.search-title{
+	position: relative;
+	background-color: #c4c4c4;
+	top: 3px;
+}
 
+.search-form {
+	position: relative;
+	margin: 50px auto;
+	width: 280px;
+	padding: 33px 25px 29px;
+	background: white;
+	border-bottom: 1px solid #c4c4c4;
+	border-radius: 5px;
+	/*-webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);*/
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.search-input{
+	width: 79%;
+	height: 50px;
+	margin-bottom: 25px;
+	padding: 0 15px 2px;
+	font-size: 17px;
+	background: white;
+	border: 2px solid #ebebeb;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 -2px #ebebeb;
+	box-shadow: inset 0 -2px #ebebeb;
+
+}
+
+.search-input:focus{
+	border-color: #62c2e4;
+	outline: none;
+	/* -webkit-box-shadow: inset 0 -2px #62c2e4; */
+	box-shadow: inset 0 -2px #62c2e4;
+}
+
+.search-button {
+	position: relative;
+	/* vertical-align: super; */
+	width: 62%;
+	height: 50px;
+	padding: 0;
+	font-size: 22px;
+	color: white;
+	text-align: center;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	background: #B2564E;
+	border: 0;
+	border-bottom: 2px solid #904B49;
+	border-radius: 5px;
+	cursor: pointer;
+	/*-webkit-box-shadow: inset 0 -2px #d76b60;*/
+	box-shadow: inset 0 -2px #904B49;
+}
 
 

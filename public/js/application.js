@@ -1,7 +1,32 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+	$('form.search-form').on('submit', userfeed);
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+
+
+function userfeed (event) {
+	event.preventDefault();
+	var input = $('#search_username').val();
+	$.ajax({
+		url: '/',
+		type: 'get',
+		dataType: 'json',
+		data: {username: input},
+	})
+	.done(function() {
+		console.log("success");
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+}
+
+
+
+
 });
+
+

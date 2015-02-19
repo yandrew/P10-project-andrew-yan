@@ -19,15 +19,18 @@
 </head>
 <body>
 
-
 <div class="header">
 
   <div class="login"><a href="https://api.instagram.com/oauth/authorize/?client_id=<%= @CLIENT_ID %>&redirect_uri=http://localhost:9393&response_type=code">Login</a></div>
 
+
   <div class="form">
-    <form id="search_username" method="post" action="/">
-      <input id="username" type="text" placeholder="username">
-      <input type="submit" value="search">
+    <form id="search_username" class="search-form" method="post" action="/">
+      <h1 class="search-title">
+        Username to view
+      </h1>
+      <input name="username" type="text" class="search-input" placeholder="What's your username?" autofocus="" autocomplete="off" style="cursor: pointer; background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
+      <input type="submit" value="search" class="search-button">
     </form>
   </div>
 
@@ -44,3 +47,4 @@
   
 </body>
 </html>
+

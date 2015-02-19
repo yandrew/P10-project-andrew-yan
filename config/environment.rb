@@ -20,8 +20,8 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 require 'dotenv'
-require 'HTTParty'
-
+require 'httparty'
+require 'json'
 Dotenv.load
 
 # Some helper constants for path-centric logic
