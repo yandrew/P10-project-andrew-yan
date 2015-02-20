@@ -70,16 +70,16 @@ get "/location_search" do
   html
 end
 
+get "/user_search" do
+	@user = User.find(session[:user_id])
+	erb :search_user
+end
+
 post "/user_search" do
 	@user = User.find(session[:user_id])
   @client = @user.client
   @name = params[:name]
   erb :search_user_results
-end
-
-get "/user_search" do
-	@user = User.find(session[:user_id])
-	erb :search_user
 end
 
 get "/users/search/feed" do
@@ -88,6 +88,7 @@ get "/users/search/feed" do
 end
 
 post "/users/search/feed" do
+	@other_user = params[:name]
 	redirect "/users/#{@other_user}/feed"
 end
 

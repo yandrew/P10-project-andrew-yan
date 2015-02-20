@@ -1,0 +1,1 @@
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>" type="text/javascript"></script>

@@ -13,35 +13,40 @@
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
   <script src="/js/application.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY"
-  type="text/javascript"></script>
+  <script src="/js/map.js"></script>
 
   <title></title>
 </head>
 <body>
 
-<div class="header">
-  <% if logged_in? %>
-    <div class="user-header">
+  <div class="header">
+    <% if logged_in? %>
+      <div class="user-header">
 
-      <p id="username">Welcome <%= @user.username %><p>
-      <img src="<%= @user.profile_pic %>" alt="profile_picture">
-      <button><a href="/sign_out">Sign Out</a></button>
-    </div>
-  <% else %>
-    <form class="sign-in-form" action="/oauth/connect" method="get">
-      <input class="sign-in-button" type="submit" value="Instagram Sign In" />
-    </form>
-  <% end %>
-</div>
+        <p id="username">Welcome <%= @user.username %><p>
+        <img src="<%= @user.profile_pic %>" alt="profile_picture">
+        <button><a href="/sign_out">Sign Out</a></button>
+      </div>
+    <% else %>
+      <form class="sign-in-form" action="/oauth/connect" method="get">
+        <input class="sign-in-button" type="submit" value="Instagram Sign In" />
+      </form>
+    <% end %>
+  </div>
 
-  <%= yield %>
+    <%= yield %>
+  
+  <div class="center">
+    
 
+  </div>
+  <div class="map">
+    
+  </div>
 
-<div class="footer">
-  footer
-</div>
+  
 
 
   
