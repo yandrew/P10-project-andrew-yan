@@ -1,0 +1,54 @@
+
+
+
+
+
+
+
+ <h1>My Feed</h1>
+  <% page_1 = @client.user_media_feed(20) %>
+  <% page_2_max_id = page_1.pagination.next_max_id %>
+  <% page_2 = @client.user_media_feed(20, :max_id => page_2_max_id ) unless page_2_max_id.nil? %>
+  <% for post in page_1 %>
+    <div class="post-each">
+      <h4 class="feed-user"><%= post.user.username %></h4>
+      <img class="post-image" src="<%= post.images.standard_resolution.url %>" >
+      <% if post.location %>
+        <% lat= post.location.latitude %>
+        <% long = post.location.longitude %>
+        
+        <p><%= lat %>, <%= long %></p>
+        
+        <iframe class="map" width="450" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?key=<%= ENV['API_KEY'] %>&center=<%= lat %>,<%= long %>&zoom=18"> 
+        </iframe>
+
+        
+      <% end %>
+    </div>
+  <% end  %>
+
+<script type="text/javascript">
+  
+  $(document).ready(function() { 
+    
+    $('.post-image').click(function(event) {
+      event.preventDefault();
+      $(this).css('display', 'none');
+      $(this).closest('div.post-each').append("<p>click works!!!!</p>")
+      /* Act on the event */
+    });
+
+
+
+
+  });  
+</script>
+
+
+
+<!-- <a href="#">More</a>
+   <h2>Page 2</h2><br/>
+  for post in page_2
+    <img src='#{post.images.thumbnail.url}'>
+  end
+  html -->

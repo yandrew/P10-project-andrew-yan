@@ -48,7 +48,10 @@ end
 get '/profile' do
 	if logged_in?
 		@user = User.find(session[:user_id])
+		@client = @user.client
+		
 		erb :profile
+		# @client.user_recent_media(20).to_json
 	else
 		redirect '/'
 	end
