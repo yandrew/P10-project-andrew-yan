@@ -13,6 +13,9 @@ a:visited{
 	color: black;
 }
 
+button a {
+    font-size: 11px;
+}
 
 
 
@@ -24,9 +27,9 @@ text-align: right;
 .header{
 	background-color: rgba(130, 72, 70, 0.84);
 
-	height: 100px;
+	height: 135px;
 
-	/* text-align: right; */
+	/* text-align: center; */
 	padding: 15px;
 	margin-bottom: 20px;
 
@@ -53,6 +56,12 @@ text-align: right;
 	width: 100%;
 	height: 100px;
 }
+
+.nav-top {
+    position: absolute;
+    bottom: -20px;
+}
+
 
 .nav-top ol {
     -webkit-padding-start:  0px;
@@ -188,11 +197,15 @@ h1.search-title{
 	box-shadow: inset 0 -2px #904B49;
 }
 
+.user-header {
+    height: 100px;
+    position: relative;
+}
 
 .user-header button {
 position: absolute;
-bottom: 10px;
-left: 50px;
+right: 10px;
+bottom: -17px;
 background: gainsboro;
 border: 1px solid rgb(182, 182, 182);
 border-radius: 5px;
@@ -202,11 +215,11 @@ box-shadow: 0px 5px 9px rgba(0, 0, 0, 0.39);
 
 .user-header button:active {
 box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
-bottom: 7px;
+bottom: -20px;
 }
 
 .user-header img {
-	right: 15px;
+	right: -2px;
 	position: absolute;
 	bottom: 14px;
 	border: 1px solid black;
@@ -215,10 +228,35 @@ bottom: 7px;
 }
 
 p#username {
-    left: 16px;
+    right: 20px;
     position: absolute;
-    bottom: 26px;
+    top: -32px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+h1#title {
+    font-family: verdana;
+    color: rgb(255, 189, 114);
+    float: left;
+}
+
+
 
 
 

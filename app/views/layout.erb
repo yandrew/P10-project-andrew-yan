@@ -22,6 +22,7 @@
 <body>
 
   <div class="header">
+  <h1 id="title">Webstamap</h1>
     <% if logged_in? %>
       <div class="user-header">
 
@@ -29,12 +30,25 @@
         <img src="<%= @user.profile_pic %>" alt="profile_picture">
         <button><a href="/sign_out">Sign Out</a></button>
       </div>
+      <div class="nav-top">
+      <ol>
+          <li><a href='/user_search'>Find a Friend's Username</a>
+          <li><a href='/users/search/feed'>User's Recent Posts</a></li>
+          <li><a id="user_feed" href='/user_media_feed'>User Media Feed</a>
+      </ol>
+    </div>
     <% else %>
       <form class="sign-in-form" action="/oauth/connect" method="get">
         <input class="sign-in-button" type="submit" value="Instagram Sign In" />
       </form>
     <% end %>
   </div>
+  
+  <% if logged_in? %>
+    
+  <% end %>
+  
+
 
     <%= yield %>
   
@@ -42,8 +56,10 @@
     
 
   </div>
+
   <div class="map">
     
+
   </div>
 
   
