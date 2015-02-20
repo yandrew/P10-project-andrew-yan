@@ -13,16 +13,12 @@
     <div class="post-each">
       <h4 class="feed-user"><%= post.user.username %></h4>
       <img class="post-image" src="<%= post.images.standard_resolution.url %>" >
-      <% if post.location %>
-        <% lat= post.location.latitude %>
+      <% if !!post.location && !!post.location.latitude && !!post.location.longitude %>
+        <% lat = post.location.latitude %>
         <% long = post.location.longitude %>
-        
-        <p><%= lat %>, <%= long %></p>
         
         <iframe class="map" width="450" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?key=<%= ENV['API_KEY'] %>&center=<%= lat %>,<%= long %>&zoom=18"> 
         </iframe>
-
-        
       <% end %>
     </div>
   <% end  %>
@@ -33,9 +29,18 @@
     
     $('.post-image').click(function(event) {
       event.preventDefault();
-      $(this).css('display', 'none');
-      $(this).closest('div.post-each').append("<p>click works!!!!</p>")
+      $(this).addClass('animated flipOutY');
+      $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', showMap);
+      
+      
+
+      function showMap (event) {
+        $(this).siblings('.map').css('visibility', 'visible');
+        $(this).siblings('.map').addClass('animated flipInY');  
+      }
       /* Act on the event */
+
+
     });
 
 

@@ -57,6 +57,10 @@ text-align: right;
 	height: 100px;
 }
 
+.map{
+	visibility: hidden;
+}
+
 .nav-top {
     position: absolute;
     bottom: -20px;

@@ -3,6 +3,7 @@
 get '/' do
 	if logged_in?
 		@user = User.find(session[:user_id])
+		@client = @user.client
 		erb :profile
 	else
 		erb :index
