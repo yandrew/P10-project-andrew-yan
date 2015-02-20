@@ -1,0 +1,10 @@
+<div class="my_feed">
+  <h1>My feed</h1>
+
+  <% page_1 = client.user_media_feed(20) %>
+  <!-- page_2_max_id = page_1.pagination.next_max_id
+  page_2 = client.user_recent_media(777, :max_id => page_2_max_id ) unless page_2_max_id.nil? -->
+  <% for media_item in page_1 %>
+    <img src="<%= media_item.images.thumbnail.url %>" >
+  <% end %>
+</div>  

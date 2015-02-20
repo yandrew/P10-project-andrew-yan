@@ -1,0 +1,8 @@
+<div class="search-result-container">
+	<h1>Search for users on instagram, by name or usernames</h1>
+  <% for user in @client.user_search(@name.to_s) %>
+
+  	<li> <img class="search-pic" src="<%= user.profile_picture %>"> Username: <%= user.username %><br>
+  		Name: <%=user.full_name %></li>
+  <% end %>
+</div>

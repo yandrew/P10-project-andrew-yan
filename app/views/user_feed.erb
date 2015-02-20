@@ -1,0 +1,11 @@
+<div class="user-feed-container">
+	<h1><%= @other_user %>'sFeed</h1>
+  <% for post in @feed['data'] %>
+  	<li> <img class="search-pic" src="<%= post['images']['standard_resolution']['url'] %>"></li>
+  	<% latlong = "#{post['location']['latitude']}, #{post['location']['longitude']}" %>
+  	<iframe width="450" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/streetview?
+  	key=<%= ENV['API_KEY'] %>
+  	&location=<%= latlong %>">
+		</iframe>
+  <% end %>
+</div>

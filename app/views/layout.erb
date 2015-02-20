@@ -14,26 +14,26 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=API_KEY"
+  type="text/javascript"></script>
 
   <title></title>
 </head>
 <body>
 
 <div class="header">
+  <% if logged_in? %>
+    <div class="user-header">
 
-  <div class="login"><a href="https://api.instagram.com/oauth/authorize/?client_id=<%= @CLIENT_ID %>&redirect_uri=http://localhost:9393&response_type=code">Login</a></div>
-
-
-  <div class="form">
-    <form id="search_username" class="search-form" method="post" action="/">
-      <h1 class="search-title">
-        Username to view
-      </h1>
-      <input name="username" type="text" class="search-input" placeholder="What's your username?" autofocus="" autocomplete="off" style="cursor: pointer; background-attachment: scroll; background-position: 100% 50%; background-repeat: no-repeat;">
-      <input type="submit" value="search" class="search-button">
+      <p id="username">Welcome <%= @user.username %><p>
+      <img src="<%= @user.profile_pic %>" alt="profile_picture">
+      <button><a href="/sign_out">Sign Out</a></button>
+    </div>
+  <% else %>
+    <form class="sign-in-form" action="/oauth/connect" method="get">
+      <input class="sign-in-button" type="submit" value="Instagram Sign In" />
     </form>
-  </div>
-
+  <% end %>
 </div>
 
   <%= yield %>

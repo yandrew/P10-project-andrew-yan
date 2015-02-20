@@ -1,20 +1,4 @@
-  <% if @response_token %>
-    <div>
-      <p>
-        <strong>Response token info: </strong><%= @response_token %><br>
-        <strong>token:</strong> <%= @response_token.access_token %><br>
-        <strong>secret:</strong> <%= @response_token %><br>
-      </p>
-      <p>
-        <button><a href="/sign_out">Sign Out</a></button>
-      </p>
-    </div>
-  <% else %>
-    <form action="/oauth/connect" method="get">
-      <input type="submit" value="Sign In with Instagram" />
-    </form>
-  <% end %>
-
+  
 
 
 <div class="post-container">
