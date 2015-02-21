@@ -1,43 +1,56 @@
 
-
-
-
-
-
-
- <h1>My Feed</h1>
+ <h1 id="my-feed">My Feed</h1>
   <% page_1 = @client.user_media_feed(20) %>
   <% page_2_max_id = page_1.pagination.next_max_id %>
   <% page_2 = @client.user_media_feed(20, :max_id => page_2_max_id ) unless page_2_max_id.nil? %>
   <% for post in page_1 %>
     <div class="post-each">
       <h4 class="feed-user"><%= post.user.username %></h4>
-      <img class="post-image" src="<%= post.images.standard_resolution.url %>" >
       <% if !!post.location && !!post.location.latitude && !!post.location.longitude %>
         <% lat = post.location.latitude %>
-        <% long = post.location.longitude %>
-        
-        <iframe class="map" width="450" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/view?key=<%= ENV['API_KEY'] %>&center=<%= lat %>,<%= long %>&zoom=18"> 
-        </iframe>
+        <% longitude = post.location.longitude %>
+        <p>Taken at <%= lat %>, <%= longitude %></p>
+        <img class="post-image" data-lat="<%= lat %>" data-long="<%= longitude %>" src="<%= post.images.standard_resolution.url %>" >
+      <iframe class="map hidemap" width="450" height="250" frameborder="0" style="border:0" src=https://www.google.com/maps/embed/v1/view?key=<%=ENV['API_KEY']%>&center=<%= lat %>,<%= longitude %>&zoom=18 > 
+      </iframe>
+
+      <% else %>
+        <img class="post-image" src="<%= post.images.standard_resolution.url %>" > 
       <% end %>
+      
+
+
     </div>
   <% end  %>
+  
+  <div id="map_template" style="display:none">
+    <iframe class="map" width="450" height="250" frameborder="0" style="border:0" > 
+    </iframe>
+  </div>
 
 <script type="text/javascript">
   
   $(document).ready(function() { 
     
+    
+
     $('.post-image').click(function(event) {
       event.preventDefault();
       $(this).addClass('animated flipOutY');
       $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', showMap);
       
       
-
-      function showMap (event) {
-        $(this).siblings('.map').css('visibility', 'visible');
-        $(this).siblings('.map').addClass('animated flipInY');  
+      function showMap () {
+        $(this).addClass('hidemap');
+        $(this).siblings('.map').removeClass('hidemap').addClass('animated flipInY');
       }
+
+      // function showMap (event) {
+      //   var lat = $(this).data('lat');
+      //   var longitude = $(this).data('longitude');
+      //   $(this).closest('div.post-each').append(buildMap(lat,longitude));
+      //   $(this).siblings('.map').addClass('animated flipInY');  
+      // }
       /* Act on the event */
 
 
@@ -47,6 +60,12 @@
 
 
   });  
+
+
+
+
+
+
 </script>
 
 

@@ -1,11 +1,40 @@
-<div class="user-feed-container">
-	<h1><%= @other_user %>'sFeed</h1>
+
+	<h1 id="my-feed"><%= @other_user %>'s Feed</h1>
   <% for post in @feed['data'] %>
-  	<li> <img class="search-pic" src="<%= post['images']['standard_resolution']['url'] %>"></li>
-  	<% latlong = "#{post['location']['latitude']}, #{post['location']['longitude']}" %>
-  	<iframe width="450" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/streetview?
-  	key=<%= ENV['API_KEY'] %>
-  	&location=<%= latlong %>">
-		</iframe>
-  <% end %>
-</div>
+		<div class="post-each">
+		<% if !!post['location'] %>
+				<% lat = post['location']['latitude'] %>
+	      <% longitude = post['location']['longitude'] %>
+				<p>Taken at <%= lat %>, <%= longitude %></p>
+	      <img class="post-image" data-lat="<%= lat %>" data-long="<%= longitude %>" src="<%= post['images']['standard_resolution']['url'] %>" >
+	      <iframe class="map hidemap" width="450" height="250" frameborder="0" style="border:0" src=https://www.google.com/maps/embed/v1/view?key=<%=ENV['API_KEY']%>&center=<%= lat %>,<%= longitude %>&zoom=18 > 
+	      </iframe>
+    <% else %>
+      	<img class="post-image" src="<%= post['images']['standard_resolution']['url'] %>" > 
+  	<% end %>
+  	</div>
+	<% end %>
+
+
+<script type="text/javascript">
+  
+  $(document).ready(function() { 
+
+    $('.post-image').click(function(event) {
+      event.preventDefault();
+      $(this).addClass('animated flipOutY');
+      $(this).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', showMap);
+      
+      function showMap () {
+        $(this).addClass('hidemap');
+        $(this).siblings('.map').removeClass('hidemap').addClass('animated flipInY');
+      }
+    });
+  });  
+
+
+
+
+
+
+</script>

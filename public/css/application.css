@@ -3,6 +3,7 @@ body{
 	background-image:url(../imgs/concrete_seamless.png);
 }
 
+
 a{
 	text-decoration: none;
 	color: black;
@@ -13,12 +14,26 @@ a:visited{
 	color: black;
 }
 
+h1#title {
+  font-family: verdana;
+  color: rgb(255, 189, 114);
+  float: left;
+  size: 50px;
+}
+
+h5{
+	font-size: 25px;
+	color: rgb(189, 96, 96);
+}
+
+
 button a {
     font-size: 11px;
 }
 
-
-
+.homepage {
+   height: 547px;
+}
 
 form.search_username {
 text-align: right;
@@ -31,7 +46,7 @@ text-align: right;
 
 	/* text-align: center; */
 	padding: 15px;
-	margin-bottom: 20px;
+	/* margin-bottom: 20px; */
 
 	/* text-align: right; */
 	position: relative;
@@ -55,10 +70,6 @@ text-align: right;
 	bottom: 0;
 	width: 100%;
 	height: 100px;
-}
-
-.map{
-	visibility: hidden;
 }
 
 .nav-top {
@@ -169,7 +180,6 @@ h1.search-title{
 	box-shadow: inset 0 -2px #904B49;
 }
 
-
 .sign-in-form {
 	margin-left: 20px;
 	/* bottom: 5px; */
@@ -179,8 +189,6 @@ h1.search-title{
 	/* top: 15%; */
 	margin-top: 45px;
 }
-
-
 
 .sign-in-button {
 	position: relative;
@@ -237,38 +245,38 @@ p#username {
     top: -32px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-h1#title {
-    font-family: verdana;
-    color: rgb(255, 189, 114);
-    float: left;
+.hidemap{
+	display: none
 }
 
+#my-feed{
+	position: relative;
 
+}
 
+img.post-image {
+    height: 550px;
+    box-shadow: 0px 5px 9px rgba(79, 76, 76, 0.87); 
+    border: 0px solid white;
+    border-radius: 10px;
+}
 
+.center {
+    text-align: center;
+    background-color: rgba(180, 181, 180, 0.58);
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 11px;
+}
 
-
-
-
-
-
+.post-each {
+    border: 2px solid rgb(142, 140, 140);
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    padding-bottom: 56px;
+}
 
 
 

@@ -50,9 +50,7 @@ get '/profile' do
 	if logged_in?
 		@user = User.find(session[:user_id])
 		@client = @user.client
-		
 		erb :profile
-		# @client.user_recent_media(20).to_json
 	else
 		redirect '/'
 	end
@@ -65,14 +63,6 @@ get "/users/feed" do
   erb :feed
 end
 
-get "/location_search" do
-  client = Instagram.client(:access_token => session[:access_token])
-  html = "<h1>Search for a location by lat/lng with a radius of 5000m</h1>"
-  for location in client.location_search("48.858844","2.294351","5000")
-    html << "<li> #{location.name} <a href='https://www.google.com/maps/preview/@#{location.latitude},#{location.longitude},19z'>Map</a></li>"
-  end
-  html
-end
 
 get "/user_search" do
 	@user = User.find(session[:user_id])
@@ -101,8 +91,21 @@ get "/users/:name/feed" do
 	@user = User.find(session[:user_id])
 	@other_user = params[:name]
 	@feed = api.username_feed(params[:name])
-	# @feed['data'][0]['location']['latitude']
-	@latlong = "#{@feed['data'][0]['location']['latitude']}, #{@feed['data'][0]['location']['longitude']}"
-	erb :map
-	# erb :user_feed
+	
+	erb :user_feed
 end
+
+
+
+
+
+
+
+# get "/location_search" do
+#   client = Instagram.client(:access_token => session[:access_token])
+#   html = "<h1>Search for a location by lat/lng with a radius of 5000m</h1>"
+#   for location in client.location_search("48.858844","2.294351","5000")
+#     html << "<li> #{location.name} <a href='https://www.google.com/maps/preview/@#{location.latitude},#{location.longitude},19z'>Map</a></li>"
+#   end
+#   html
+# end
