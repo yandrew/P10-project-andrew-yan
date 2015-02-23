@@ -11,7 +11,7 @@
         <% longitude = post.location.longitude %>
         <p>Taken at <%= lat %>, <%= longitude %></p>
         <img class="post-image" data-lat="<%= lat %>" data-long="<%= longitude %>" src="<%= post.images.standard_resolution.url %>" >
-      <iframe class="map hidemap" width="450" height="250" frameborder="0" style="border:0" src=https://www.google.com/maps/embed/v1/view?key=<%=ENV['API_KEY']%>&center=<%= lat %>,<%= longitude %>&zoom=18 > 
+      <iframe class="map hidemap" width="450" height="250" frameborder="0" style="border:0" src=https://www.google.com/maps/embed/v1/view?key=<%=ENV['API_KEY']%>&center=<%= lat %>,<%= longitude %>&zoom=14 > 
       </iframe>
 
       <% else %>
