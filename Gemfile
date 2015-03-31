@@ -14,7 +14,9 @@ gem 'activerecord', '~>4.1'
 
 gem 'rake'
 
-gem 'shotgun'
+gem 'passenger'
+
+# gem 'shotgun'
 gem 'dotenv'
 gem 'instagram'
 gem 'httparty'
