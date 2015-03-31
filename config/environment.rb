@@ -26,6 +26,9 @@ require 'json'
 require 'sinatra'
 Dotenv.load
 
+set :environment, ENV['RACK_ENV'].to_sym
+disable :run, :reload
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
